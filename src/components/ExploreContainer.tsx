@@ -1,7 +1,7 @@
 import React from 'react';
 import './ExploreContainer.css';
 
-const ExploreContainer: React.FC = () => {
+const ExploreContainer: React.FC = ({}) => {
   return (
     <div id="container">
       <strong>Ready to create an app?</strong>

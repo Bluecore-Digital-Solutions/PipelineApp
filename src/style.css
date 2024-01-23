@@ -1,0 +1,29 @@
+/* styles.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Add your custom styles below this line */
+ion-menu[contentId="main-content"] {
+    z-index: 60
+}
+
+ion-header ion-toolbar:first-of-type {
+    padding-top: var(--ion-safe-area-top, 0);
+    z-index: 30;
+}
+
+.no-box-shadow {
+    box-shadow: none !important;
+}
+
+/* Add this to your CSS */
+ion-header {
+    box-shadow: 0 0 0 transparent; /* Adjust as needed */
+  }
+  
+  /* Add a class to handle the shadow when the menu is open */
+  .menu-open ion-header {
+    box-shadow: none;
+  }
+
