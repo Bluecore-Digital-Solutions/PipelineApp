@@ -1,0 +1,150 @@
+/* styling for the header */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* height: 128px; */
+  background-color: #ff6b00;
+  color: white;
+  border-radius: 0 0 30px 30px;
+  padding-top: 70px;
+}
+
+.header__img {
+  width: 48px;
+  height: 49px;
+  border-radius: 300px;
+  margin-top: auto;
+}
+
+.header > h3 {
+  font-weight: bold;
+  font-size: 22px;
+  padding: 0px;
+  margin: 0px;
+}
+.header > p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.active {
+  height: 11px;
+  width: 11px;
+  background-color: #05cf26;
+  border-radius: 100%;
+}
+
+/* styling for contact details */
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  padding: 0px 20px;
+  gap: 15px;
+}
+
+.contact__top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact__top-left {
+  display: flex;
+  gap: 10px;
+}
+
+.address > p {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16.5px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.email {
+  text-decoration: underline;
+}
+
+.loaction__marker {
+  width: 11px;
+  height: 14px;
+}
+
+.contact__top-center {
+  width: 2px;
+  height: 35px;
+  background-color: gray;
+  margin-left: -20px;
+}
+
+.contact__top-right > p {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16.5px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.contact__bottom {
+  color: #ff6b00;
+  font-size: 11px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.line__break {
+  width: 100%;
+  height: 1px;
+  background-color: gray;
+  margin: 30px 0px;
+}
+
+/* client__product section */
+.client__product {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 20px;
+  gap: 10px;
+}
+
+.client__product-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.client__product-heading > p {
+  padding: 0px;
+  margin: 0px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.seeall {
+  font-weight: 600;
+  font-size: 11px;
+  color: #ff6b00;
+}
+
+/* submit button */
+.button__container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.submit {
+  width: 184px;
+  padding: 10px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  background-color: #ff6b00;
+  color: white;
+  border-radius: 5px;
+}
