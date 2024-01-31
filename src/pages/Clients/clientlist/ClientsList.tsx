@@ -16,9 +16,16 @@ import image from "../../../assets/back.png";
 const ClientsListPage: React.FC = () => {
   const getAllClients = async () => {
     try {
-      const response = await fetch(
-        "https://app.pipeline.ng/swagger/v1/swagger.json/api/Client/All"
-      );
+      const response = await fetch("https://app.pipeline.ng/api/client/all", {
+        method: "POST",
+        body: JSON.stringify({
+          coyId: "10",
+          clientId: "100",
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       const data = await response.json();
 
@@ -28,7 +35,7 @@ const ClientsListPage: React.FC = () => {
     }
   };
 
-  getAllClients();
+  // getAllClients();
 
   return (
     <IonPage>
