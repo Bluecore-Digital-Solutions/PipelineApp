@@ -23,7 +23,7 @@ const NewClientsPage: React.FC = () => {
       const response = await fetch("https://app.pipeline.ng/api/client/add", {
         method: "POST",
         body: JSON.stringify({
-          coyId: 2000,
+          coyId: 10,
           clientName: "Fortune Oliseyenum",
           mobileNo: "09041549081",
           email: "kingjasper.dev@gmail.com",
@@ -42,7 +42,7 @@ const NewClientsPage: React.FC = () => {
     }
   };
 
-  addNewClient();
+  // addNewClient();
 
   return (
     <IonPage>
