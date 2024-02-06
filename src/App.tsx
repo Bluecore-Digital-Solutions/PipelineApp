@@ -6,6 +6,7 @@ import { home, information, logIn } from 'ionicons/icons'; // Import Ionicons ic
 import Home from './pages/Home';
 import About from './pages/About';
 import Login from './pages/Login';
+import ClientList from './pages/clients/ClientList';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -25,24 +26,34 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import NewClient from './pages/clients/NewClient';
+import clientAddedSuccess from './pages/clients/clientAddedSuccess';
+import ClientProfile from './pages/clients/ClientProfile';
+import AttachClient from './pages/clients/AttachClient';
+import ClientAtteched from './pages/clients/ClientAttached';
 
 setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
+    
     <IonReactRouter>
+      
+      <IonRouterOutlet>
+        
+      </IonRouterOutlet>
+
     <IonHeader>
           <IonToolbar>
             <IonTitle>Menu</IonTitle>
             <IonButtons slot="start">
-            <IonMenuButton></IonMenuButton>
-          </IonButtons>
+              <IonMenuButton></IonMenuButton>
+            </IonButtons>
           </IonToolbar>
         </IonHeader>
       <IonMenu contentId="main-content" onIonDidOpen={() => document.body.classList.add('menu-open')} onIonDidClose={() => document.body.classList.remove('menu-open')}>
         
         <IonContent>
-       
           <IonList>
             <IonItem button routerLink="/home">
               <IonIcon icon={home} />
@@ -57,22 +68,33 @@ const App: React.FC = () => (
               <IonLabel>Login</IonLabel>
             </IonItem>
           </IonList>
+          
         </IonContent>
       </IonMenu>
       <IonRouterOutlet id="main-content">
-     
+        <Route path="/clientattached"  exact component={ClientAtteched} />
+        <Route path="/attachclient"  exact component={AttachClient} />
+        <Route path="/clientprofile"  exact component={ClientProfile} />
+        <Route path="/clientadded"  exact component={clientAddedSuccess} />
+        <Route path="/newclient"  exact component={NewClient} />
+        <Route path="/clients"  exact component={ClientList} />
         <Route path="/home" component={Home} exact />
         <Route path="/about" component={About} exact />
         <Route path="/login" component={Login} exact />
         <Route exact path="/" render={() => <Redirect to="/home" />} />
       </IonRouterOutlet>
+
+      
+
       <IonTabs>
         <IonRouterOutlet>
+          
           <Route path="/home" component={Home} exact />
           <Route path="/about" component={About} exact />
           <Route path="/login" component={Login} exact />
           <Route exact path="/" render={() => <Redirect to="/home" />} />
         </IonRouterOutlet>
+        
         <IonTabBar slot="bottom">
           <IonTabButton tab="home" href="/home">
             <IonIcon icon={home} />
