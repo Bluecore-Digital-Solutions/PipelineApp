@@ -1,0 +1,63 @@
+.custom-list {
+  background-color: #ff5c00 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.custom-rg {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  flex-direction: row;
+  width: 330px;
+  background-color: #ff5c00 !important;
+}
+
+.custom-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ff5c00 !important;
+  font-size: 10px;
+}
+
+.custom-label {
+  font-weight: 100;
+  font-size: 3px;
+}
+
+.custom-radio {
+  zoom: 0.5;
+  display: flex;
+  justify-content: center;
+}
+
+ion-button {
+  --background: none;
+  --border: 0;
+  --border-radius: 0;
+  --outline: none;
+  --box-shadow: none;
+  --padding: 0;
+  --margin: 0;
+  font-size: x-small;
+}
+
+.writeup {
+  font-size: x-small;
+}
+
+.approved {
+  display: flex;
+  justify-content: space-between;
+}
+
+.approved-p {
+  color: #ff5c00;
+}
+
+.plan {
+  background-color: #f3bc9d;
+  height: 512px;
+}

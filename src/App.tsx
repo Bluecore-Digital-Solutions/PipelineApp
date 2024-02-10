@@ -1,6 +1,25 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact, IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonIcon, IonLabel, IonTabs, IonTabBar, IonTabButton, IonRouterLink, IonButtons, IonMenuButton } from '@ionic/react';
+import {
+  IonApp,
+  IonRouterOutlet,
+  setupIonicReact,
+  IonMenu,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonList,
+  IonItem,
+  IonIcon,
+  IonLabel,
+  IonTabs,
+  IonTabBar,
+  IonTabButton,
+  IonRouterLink,
+  IonButtons,
+  IonMenuButton,
+} from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { home, information, logIn } from 'ionicons/icons'; // Import Ionicons icons
 import Home from './pages/Home';
@@ -25,64 +44,67 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Subscription from './pages/Subcription';
 
 setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-    <IonHeader>
-          <IonToolbar>
-            <IonTitle>Menu</IonTitle>
-            <IonButtons slot="start">
+      {/* <IonHeader>
+        <IonToolbar>
+          <IonTitle>Menu</IonTitle>
+          <IonButtons slot='start'>
             <IonMenuButton></IonMenuButton>
           </IonButtons>
-          </IonToolbar>
-        </IonHeader>
-      <IonMenu contentId="main-content" onIonDidOpen={() => document.body.classList.add('menu-open')} onIonDidClose={() => document.body.classList.remove('menu-open')}>
-        
+        </IonToolbar>
+      </IonHeader>
+      <IonMenu
+        contentId='main-content'
+        onIonDidOpen={() => document.body.classList.add('menu-open')}
+        onIonDidClose={() => document.body.classList.remove('menu-open')}
+      >
         <IonContent>
-       
           <IonList>
-            <IonItem button routerLink="/home">
+            <IonItem button routerLink='/home'>
               <IonIcon icon={home} />
               <IonLabel>Home</IonLabel>
             </IonItem>
-            <IonItem button routerLink="/about">
+            <IonItem button routerLink='/about'>
               <IonIcon icon={information} />
               <IonLabel>About</IonLabel>
             </IonItem>
-            <IonItem button routerLink="/login">
+            <IonItem button routerLink='/login'>
               <IonIcon icon={logIn} />
               <IonLabel>Login</IonLabel>
             </IonItem>
           </IonList>
         </IonContent>
-      </IonMenu>
-      <IonRouterOutlet id="main-content">
-     
-        <Route path="/home" component={Home} exact />
-        <Route path="/about" component={About} exact />
-        <Route path="/login" component={Login} exact />
-        <Route exact path="/" render={() => <Redirect to="/home" />} />
+      </IonMenu> */}
+      <IonRouterOutlet id='main-content'>
+        <Route path='/home' component={Home} exact />
+        <Route path='/about' component={About} exact />
+        <Route path='/login' component={Login} exact />
+        <Route path='/subcription' component={Subscription} exact />
+        <Route exact path='/' render={() => <Redirect to='/home' />} />
       </IonRouterOutlet>
       <IonTabs>
         <IonRouterOutlet>
-          <Route path="/home" component={Home} exact />
-          <Route path="/about" component={About} exact />
-          <Route path="/login" component={Login} exact />
-          <Route exact path="/" render={() => <Redirect to="/home" />} />
+          <Route path='/home' component={Home} exact />
+          <Route path='/about' component={About} exact />
+          <Route path='/login' component={Login} exact />
+          <Route exact path='/' render={() => <Redirect to='/home' />} />
         </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="home" href="/home">
+        <IonTabBar slot='bottom'>
+          <IonTabButton tab='home' href='/home'>
             <IonIcon icon={home} />
             <IonLabel>Home</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="about" href="/about">
+          <IonTabButton tab='about' href='/about'>
             <IonIcon icon={information} />
             <IonLabel>About</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="login" href="/login">
+          <IonTabButton tab='login' href='/login'>
             <IonIcon icon={logIn} />
             <IonLabel>Login</IonLabel>
           </IonTabButton>
