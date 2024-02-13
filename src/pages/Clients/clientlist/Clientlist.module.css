@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  padding: 10px 30px;
+  justify-content: space-between;
+  color: black;
+  margin-top: 65px;
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.title {
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.back__icon {
+  width: 10px;
+  heigth: 16px;
+}
+
+.link {
+  color: #ff5c00;
+  font-size: 12px;
+}
