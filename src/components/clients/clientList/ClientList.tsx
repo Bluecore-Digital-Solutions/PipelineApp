@@ -41,9 +41,11 @@ const ClientList = () => {
 
       setClientList(data.data);
       setFilteredClientList(data.data);
+      if (error) {
+        setError(false);
+      }
     } catch (err) {
       setError(true);
-      console.log(err);
     } finally {
       setLoading(false);
     }

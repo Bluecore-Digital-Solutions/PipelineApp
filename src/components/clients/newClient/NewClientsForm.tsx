@@ -1,9 +1,56 @@
 import React, { useState } from "react";
 import styles from "./NewClients.module.css";
 import SuccessModal from "../modal/SuccessModal";
+import { IonLoading } from "@ionic/react";
 
 const NewClientsForm = () => {
   const [modal, setModal] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [dob, setDob] = useState("");
+  const [error, setError] = useState<boolean | string>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const addNewClient = async () => {
+    const formIsValid =
+      firstName.trim() !== "" &&
+      lastName.trim() !== "" &&
+      phoneNumber.length > 8 &&
+      email.trim() !== "" &&
+      dob.trim() !== "";
+
+    if (!formIsValid) {
+      setError("Please make sure all forms are filled correctly");
+      return;
+    }
+
+    try {
+      setError(false);
+      setLoading(true);
+      const response = await fetch("https://app.pipeline.ng/api/client/add", {
+        method: "POST",
+        body: JSON.stringify({
+          coyId: 10,
+          clientName: `${firstName} ${lastName}`,
+          mobileNo: `${phoneNumber}`,
+          email: `${email}`,
+          dob: `${dob}`,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+      setModal(true);
+    } catch (err: any) {
+      setError(`${err.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const setModalHandler = (modalstate: boolean) => {
     setModal(modalstate);
@@ -18,23 +65,47 @@ const NewClientsForm = () => {
       <div className={styles.form}>
         <p>Kindly fill the below form to register your client information</p>
 
+        {/* loading state */}
+        <IonLoading isOpen={loading} message={"Adding New Client..."} />
+
         {/* first name */}
-        <input placeholder="First Name" type="text" />
+        <input
+          onChange={(e) => setFirstName(e.target.value)}
+          placeholder="First Name"
+          type="text"
+        />
 
         {/* last name */}
-        <input placeholder="Last Name" type="text" />
+        <input
+          onChange={(e) => setLastName(e.target.value)}
+          placeholder="Last Name"
+          type="text"
+        />
 
         {/* Phone Number */}
-        <input placeholder="Phone Number" type="text" />
+        <input
+          onChange={(e) => setPhoneNumber(e.target.value)}
+          placeholder="Phone Number"
+          type="text"
+        />
 
         {/* Email Address */}
-        <input placeholder="Email Address" type="text" />
+        <input
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email Address"
+          type="text"
+        />
 
         {/* date of birth */}
-        <input placeholder="DD/MM/YY" type="text" />
+        <input
+          onChange={(e) => setDob(e.target.value)}
+          placeholder="DD/MM/YY"
+          type="text"
+        />
       </div>
 
-      <button onClick={() => setModal(true)}>Submit</button>
+      {error && <p className="text-red-400 text-sm">{error}</p>}
+      <button onClick={addNewClient}>Submit</button>
       <SuccessModal
         onSetModal={setModalHandler}
         modalState={modal}
