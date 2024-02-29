@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  padding: 10px 30px;
+  gap: 30%;
+  justify-content: space-between;
+  color: black;
+  margin-top: 65px;
+}
+
+.back__icon {
+  width: 10px;
+  heigth: 16px;
+}
+
+.title {
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+}
