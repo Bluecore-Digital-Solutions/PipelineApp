@@ -1,0 +1,114 @@
+:root{
+    --primary-color: #FF6B00;
+}
+
+/* Client list page styling */
+.new__client__btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em;
+    font-weight: bold;
+}
+.new__client__btn > a{
+    color: #FF6B00;
+    display: flex;
+    justify-content: flex-end;
+    padding: .8em;
+    cursor: pointer;
+    font-size: 70%;
+}
+.cli_reg_btn{
+    background-color: #FF6B00;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.client__d{
+    display: flex;
+    flex-direction: column;
+}
+.client__d > small{
+    font-size: 60%;
+}
+.cl__arrow{
+    color: #FF6B00;
+    font-size: 110%;
+    cursor: pointer;
+}
+
+.profile__div__1{
+    background: var(--primary-color);
+    margin: 0;
+    padding: 2em;
+    height: 10em;
+    border-radius: 0 0 30px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact__info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 70%;
+}
+
+.cont__1{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    padding: 1em;
+}
+
+.edit__btn{
+    height:5em;
+    color: var(--primary-color);
+    font-size: 80%;
+    text-align: center;
+    font-weight: bold;
+}
+.p__loc{
+    display: flex;
+}
+.below__icons{
+    display: flex;
+    justify-content: space-around;
+    margin: .4em;
+}
+.pp{
+    font-size: 60%;
+    padding: 0 1em;
+}
+
+/* This is the section for the success client message */
+.success__message__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4em;
+   
+}
+.success__img{
+    width: 50px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.success__msg{
+    text-align: center;
+    padding: 10px 1.5em;
+}
+
+.b__home__btn{
+    background-color: #FF6B00;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
