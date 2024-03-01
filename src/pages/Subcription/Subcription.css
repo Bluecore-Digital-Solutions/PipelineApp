@@ -1,0 +1,109 @@
+.custom-list {
+  background-color: #ff5c00 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sub-menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.plan-menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.plan-item {
+  margin: auto;
+}
+
+.custom-rg {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  flex-direction: row;
+  width: 330px;
+  background-color: #ff5c00 !important;
+}
+
+.custom-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ff5c00 !important;
+  font-size: 10px;
+}
+
+.custom-label {
+  font-weight: 100;
+  font-size: 3px;
+}
+
+.custom-radio {
+  zoom: 0.5;
+  display: flex;
+  justify-content: center;
+}
+
+.button-1 {
+  --background: none;
+  --border: 0;
+  --border-radius: 0;
+  --outline: none;
+  --box-shadow: none;
+  --padding: 0;
+  margin: 0;
+  --font-size: x-small;
+}
+.button-2 {
+  margin-right: 10px;
+  font-size: 15px;
+}
+
+.button-1:hover {
+  --outline: none;
+}
+
+.back {
+  color: black;
+  --font-size: x-small;
+}
+
+.writeup {
+  font-size: 15px;
+  margin-left: 15px;
+}
+
+.approved {
+  display: flex;
+  justify-content: space-between;
+}
+
+.approved-p {
+  color: #ff5c00;
+}
+
+.plan {
+  background-color: #f3bc9d;
+  height: 512px;
+}
+
+label {
+  margin-bottom: 8px;
+}
+
+.click-option {
+  display: flex;
+  justify-content: center;
+}
+
+.click-item {
+  display: grid;
+  padding: 10px;
+}
+
+.label-item {
+  margin-top: 10px;
+}
