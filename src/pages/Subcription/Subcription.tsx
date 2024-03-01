@@ -77,7 +77,7 @@ const Subscription: React.FC = () => {
               <label className='label-item'>Silver</label>
             </div>
             <div className='click-item'>
-              <input type='radio' value='gold' />
+              <input type='radio' value='gold' checked />
               <label className='label-item'>Gold</label>
             </div>
             <div className='click-item'>
@@ -94,7 +94,7 @@ const Subscription: React.FC = () => {
           <div className='plan-menu'>
             <div className='plan-item'>Gold PLAN</div>
             <div>
-              <div className='button-2'>Upgrade/review</div>
+              <div className='upgrade-btn'>Upgrade/review</div>
             </div>
           </div>
           <IonList className='plan ion-padding'>

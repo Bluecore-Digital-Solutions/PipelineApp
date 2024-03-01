@@ -13,10 +13,19 @@
 .plan-menu {
   display: flex;
   justify-content: space-between;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .plan-item {
   margin: auto;
+  background: black;
+  padding: 5px;
+  font-size: 12px;
+  line-height: 18px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: poppins;
 }
 
 .custom-rg {
@@ -59,7 +68,9 @@
 }
 .button-2 {
   margin-right: 10px;
-  font-size: 15px;
+  font-size: 8px;
+  color: #fbe200;
+  font-weight: 700;
 }
 
 .button-1:hover {
@@ -72,8 +83,19 @@
 }
 
 .writeup {
-  font-size: 15px;
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 12px;
   margin-left: 15px;
+}
+
+.upgrade-btn {
+  font-size: 13px;
+  margin-right: 10px;
+  font-weight: 700;
+  color: #ff5c00;
+  line-height: 19.5px;
+  text-transform: capitalize;
 }
 
 .approved {
@@ -86,7 +108,7 @@
 }
 
 .plan {
-  background-color: #f3bc9d;
+  background-color: #f0bb95;
   height: 512px;
 }
 
@@ -106,4 +128,8 @@ label {
 
 .label-item {
   margin-top: 10px;
+}
+
+input[type='radio']:checked {
+  background: white;
 }
