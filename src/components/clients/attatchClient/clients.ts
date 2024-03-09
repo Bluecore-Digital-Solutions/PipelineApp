@@ -1,7 +1,7 @@
 export const productList = [
-  "Landmark",
-  "Treasture Palace",
-  "JJT",
-  "Art Gallery",
+  "Gracias",
+  "Highbridge Homes",
+  "MKH",
+  "Folydam Homes",
 ];
-export const clientList = ["Fortune", "Tomboy", "Prince", "Gozie"];
+export const clientList = ["Chinenye", "Taiwo", "Yinka", "Arinze"];
