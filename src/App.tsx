@@ -92,6 +92,12 @@ import './theme/variables.css';
 // import AttachClient from './pages/clients/AttachClient';
 // import ClientAtteched from './pages/clients/ClientAttached';
 import './theme/variables.css';
+import NewCampaign from './pages/Campaign/newCampaign/NewCampaign';
+import Campaigns from './pages/Campaign/campaigns/Campaigns';
+import Products from './pages/Campaign/products/Products';
+import AttachAClient from './components/campaign/attachClient/AttachAClient';
+import Attachaclient from './pages/Campaign/attachAClient/AttachaClient';
+import Newcliente from './pages/Campaign/newCliente/Newcliente';
 
 setupIonicReact();
 
@@ -143,6 +149,11 @@ const App: React.FC = () => (
         </IonContent>
       </IonMenu> */}
       <IonRouterOutlet id='main-content'>
+        <Route path="/addnewclient" exact component={Newcliente} />
+        <Route path="/attachclient" exact component={Attachaclient} />
+        <Route path="/products/:id" exact component={Products} />
+        <Route path="/addnewcampaign" exact component={NewCampaign} />
+        <Route path="/campaigns" exact component={Campaigns} />
         {/* <Route path='/clientattached' exact component={ClientAtteched} />
         <Route path='/attachclient' exact component={AttachClient} />
         <Route path='/clientprofile' exact component={ClientProfile} />
@@ -165,7 +176,7 @@ const App: React.FC = () => (
           <Route exact path='/' render={() => <Redirect to='/home' />} /> */}
 
       {/* clients page routes */}
-      {/* <Route path='/client'>
+      <Route path='/client'>
             <ClientsListPage />
           </Route>
           <Route path='/new-clients'>
@@ -179,7 +190,7 @@ const App: React.FC = () => (
           </Route>
           <Route path='/subcription'>
             <Subscription />
-          </Route> */}
+          </Route>
       {/* </IonRouterOutlet> */}
 
       {/* <IonTabBar slot='bottom'>

@@ -1,0 +1,17 @@
+.back__icon{
+    width: 12px;
+    padding-left: .1em;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title{
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+}
