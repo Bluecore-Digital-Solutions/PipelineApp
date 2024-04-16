@@ -83,6 +83,10 @@ import SubcriptionPage from "./pages/Subcription/Subcription";
 import UpgradeRenewPage from "./pages/Subcription/Upgrade-Renew/UpgradeRenew";
 import NewSubPlanPage from "./pages/Subcription/NewSubPlan/NewSubPlan";
 
+// campaign section
+import CampaignPage from "./pages/campaign/CampaignPage";
+import ProductDetailPage from "./pages/campaign/ProductDetail/ProductDetailPage";
+
 /* Theme variables */
 
 import "./theme/variables.css";
@@ -150,10 +154,11 @@ const App: React.FC = () => (
         <Route path='/clientadded' exact component={clientAddedSuccess} />
         <Route path='/newclient' exact component={NewClient} />
         */}
-        <Route path="/clients" exact component={ClientsListPage} />
         <Route path="/home" component={Home} exact />
         <Route path="/about" component={About} exact />
         <Route path="/login" component={Login} exact />
+
+        {/* subscription */}
         <Route path="/subscription" component={SubcriptionPage} exact />
         <Route
           path="/subscription/upgrade-renew"
@@ -163,6 +168,23 @@ const App: React.FC = () => (
         <Route path="/subscription/new-plan" component={NewSubPlanPage} exact />
         <Route path="/success" component={Success} exact />
         <Route exact path="/" render={() => <Redirect to="/home" />} />
+
+        {/* campaign */}
+        <Route path="/campaigns" component={CampaignPage} exact />
+        <Route path="/campaigns/:id">
+          <ProductDetailPage />
+        </Route>
+
+        {/* clients */}
+        <Route path="/attatch-client">
+          <AttatchClientsPage />
+        </Route>
+        <Route path="/client">
+          <ClientsListPage />
+        </Route>
+        <Route path="/new-clients">
+          <NewClientsPage />
+        </Route>
       </IonRouterOutlet>
 
       {/* <IonRouterOutlet>
@@ -172,18 +194,12 @@ const App: React.FC = () => (
           <Route exact path='/' render={() => <Redirect to='/home' />} /> */}
 
       {/* clients page routes */}
-      {/* <Route path='/client'>
-            <ClientsListPage />
-          </Route>
-          <Route path='/new-clients'>
-            <NewClientsPage />
-          </Route>
+      {/* 
+         
           <Route path='/details/:id'>
             <ClientDetailPage />
           </Route>
-          <Route path='/attatch-client'>
-            <AttatchClientsPage />
-          </Route>
+        
           <Route path='/subcription'>
             <Subscription />
           </Route> */}
