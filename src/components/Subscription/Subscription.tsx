@@ -7,43 +7,6 @@ import SubscriptionList from "./SubscriptionList";
 
 const Subscription = () => {
   const [level, setLevel] = useState<number>(2);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    getSubscription();
-  }, []);
-
-  const getSubscription = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch(
-        `https://app.pipeline.ng/api/Subscription/all`,
-        {
-          method: "POST",
-          body: JSON.stringify({
-            coyId: "10",
-            // marketerId: "string",
-            // tranxid: "string",
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      const data = await response.json();
-
-      console.log(data);
-
-      if (!response.ok) {
-        throw new Error();
-      }
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <section>

@@ -38,8 +38,6 @@ const SubscriptionList = () => {
           method: "POST",
           body: JSON.stringify({
             coyId: "10",
-            // marketerId: "string",
-            // tranxid: "string",
           }),
           headers: {
             "Content-Type": "application/json",
