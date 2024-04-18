@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import CampaignItems from "./CampaignItems";
-import lekki from "../../assets/lekki.png";
-import mongo from "../../assets/mongo.png";
-import treasure from "../../assets/treasure.png";
-import { IonList, IonAlert, IonLoading } from "@ionic/react";
+import {
+  IonList,
+  IonAlert,
+  IonLoading,
+  useIonViewWillEnter,
+} from "@ionic/react";
 
 const Campaign = () => {
   const [loading, setLoading] = useState(false);
@@ -11,9 +13,9 @@ const Campaign = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [campaigns, setCampaigns] = useState([]);
 
-  useEffect(() => {
+  useIonViewWillEnter(() => {
     getCampaigns();
-  }, []);
+  });
 
   const getCampaigns = async () => {
     try {
@@ -35,9 +37,9 @@ const Campaign = () => {
 
       if (!response.ok) {
         console.log(data);
-        throw new Error("Something went wrong");
+        throw new Error(data.title);
       }
-
+      console.log(data);
       setCampaigns(data.data);
     } catch (err: any) {
       console.log(err);

@@ -19,7 +19,6 @@ type CampaignProps = {
 };
 
 const CampaignItems = (props: CampaignProps) => {
-  console.log(props.item);
   return (
     <IonItem>
       <div className="flex flex-col gap-2 w-full">
@@ -63,7 +62,9 @@ const CampaignItems = (props: CampaignProps) => {
           </div>
         </div>
 
-        <IonRouterLink routerLink={`/campaigns/details/treasure`}>
+        <IonRouterLink
+          routerLink={`/campaigns/details/${props.item.productId}`}
+        >
           <div className="flex items-center gap-2 justify-end">
             <img src={next} alt="next icon" />
             <p className="text-black text-[0.63rem]">View Product</p>
