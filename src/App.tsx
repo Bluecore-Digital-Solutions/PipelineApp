@@ -86,6 +86,7 @@ import NewSubPlanPage from "./pages/Subcription/NewSubPlan/NewSubPlan";
 // campaign section
 import CampaignPage from "./pages/campaign/CampaignPage";
 import ProductDetailPage from "./pages/campaign/ProductDetail/ProductDetailPage";
+import AddNewCampaignPage from "./pages/campaign/AddNewCampaign/AddNewCampaignPage";
 
 /* Theme variables */
 
@@ -171,8 +172,11 @@ const App: React.FC = () => (
 
         {/* campaign */}
         <Route path="/campaigns" component={CampaignPage} exact />
-        <Route path="/campaigns/:id">
+        <Route path="/campaigns/details/:id">
           <ProductDetailPage />
+        </Route>
+        <Route path="/campaigns/add-new">
+          <AddNewCampaignPage />
         </Route>
 
         {/* clients */}

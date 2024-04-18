@@ -56,7 +56,7 @@ const CampaignItems = (props: CampaignProps) => {
         </div>
       </div>
 
-      <IonRouterLink routerLink={`/campaigns/${props.item.name}`}>
+      <IonRouterLink routerLink={`/campaigns/details/${props.item.name}`}>
         <div className="flex items-center gap-2 justify-end">
           <img src={next} alt="next icon" />
           <p className="text-black text-[0.63rem]">View Product</p>

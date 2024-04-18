@@ -1,23 +1,72 @@
-import React, { useState } from "react";
-import { IonSelect, IonSelectOption, IonImg, IonAlert } from "@ionic/react";
+import React, { useEffect, useState } from "react";
+import {
+  IonSelect,
+  IonSelectOption,
+  IonImg,
+  IonAlert,
+  IonLoading,
+} from "@ionic/react";
 import down from "../../../assets/down.png";
 import styles from "./NewSub.module.css";
 import check from "../../../assets/check.png";
 import SubscriptionModal from "../SubscriptionModal";
 
+const options: Intl.DateTimeFormatOptions = {
+  year: "numeric",
+  month: "long",
+  weekday: "long",
+};
+
 const NewSubscriptionForm = () => {
-  const [marketId, setmarketId] = useState("");
-  const [companyId, setCompanyId] = useState("");
+  const [marketId, setmarketId] = useState<number>();
+  const [companyId, setCompanyId] = useState<number>();
   const [amount, setAmount] = useState("50000");
-  const [startDate, setstartDate] = useState("Wednesday, March 2024");
-  const [expiryDate, setExpiryDate] = useState("Wednesday, June, 2024");
+  const [startDate, setstartDate] = useState("");
+  const [expiryDate, setExpiryDate] = useState("");
+  const [readableExpiryDate, setReadableExpiryDate] = useState("");
+  const [readableStartDate, setReadableStartDate] = useState("");
   const [plan, setplan] = useState<string>("");
   const [method, setMethod] = useState<string>("");
   const [terms, setTerms] = useState(false);
   const [autoDebit, setAutoDebit] = useState(false);
   const [modal, setModal] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    const currentDate = new Date();
+    const futureDate = new Date(currentDate);
+    const planNumber =
+      plan === "Bronze"
+        ? 1
+        : plan === "Silver"
+        ? 2
+        : plan === "Gold"
+        ? 3
+        : plan === "Plantinum"
+        ? 4
+        : plan === "Saphire"
+        ? 5
+        : 0;
+    futureDate.setMonth(currentDate.getMonth() + planNumber);
+
+    setstartDate(currentDate.toISOString());
+    setExpiryDate(futureDate.toISOString());
+
+    const readableDate = (date: Date) => {
+      const weekday = date.toLocaleDateString("en-NG", {
+        weekday: "long",
+      });
+      const month = date.toLocaleDateString("en-NG", { month: "long" });
+      const year = date.toLocaleDateString("en-NG", { year: "numeric" });
+
+      return `${weekday}, ${month}, ${year}`;
+    };
+
+    setReadableStartDate(readableDate(currentDate));
+    setReadableExpiryDate(readableDate(futureDate));
+  }, [plan]);
 
   const planList = ["Bronze", "Silver", "Gold", "Plantinum", "Saphire"];
   const methodList = ["E-Wallet", "Other"];
@@ -52,22 +101,62 @@ const NewSubscriptionForm = () => {
         return;
 
       default:
-        setModal(true);
+        addNewSubscription();
+    }
+  };
+
+  const addNewSubscription = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(
+        `https://app.pipeline.ng/api/Subscription/Add`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            coyId: companyId,
+            tranxId: "string",
+            marketerId: marketId,
+            subAmount: amount,
+            startDate: startDate,
+            expiryDate: expiryDate,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        console.log(data);
+        throw new Error("Something wernt wrong");
+      }
+
+      setModal(true);
+      console.log(data);
+    } catch (err: any) {
+      console.log(err);
+      setError(true);
+      setErrorMessage(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <section className="p-[20px] text-[0.813rem]">
+      <IonLoading isOpen={loading} message={"Adding New Subscription..."} />
       <form className="flex flex-col gap-4 font-[500]">
         {/* marketers ID */}
         <div className="flex flex-col gap-2">
           <label htmlFor="marketid">{`Marketer's`} ID</label>
           <input
             className="py-2 px-3 bg-[#D9D9D947]"
-            type="text"
+            type="number"
             id="marketid"
-            onChange={(e) => setmarketId(e.target.value)}
-            value={marketId}
+            onChange={(e) => setmarketId(Number(e.target.value))}
+            defaultValue={marketId}
           />
         </div>
 
@@ -76,10 +165,10 @@ const NewSubscriptionForm = () => {
           <label htmlFor="company__id">Company ID</label>
           <input
             className="py-2 px-3 bg-[#D9D9D947]"
-            type="text"
+            type="number"
             id="company__id"
-            onChange={(e) => setCompanyId(e.target.value)}
-            value={companyId}
+            onChange={(e) => setCompanyId(Number(e.target.value))}
+            defaultValue={companyId}
           />
         </div>
 
@@ -87,9 +176,9 @@ const NewSubscriptionForm = () => {
         <div className="flex flex-col gap-2">
           <input
             className="py-2 px-3 bg-[#D9D9D9C2]"
-            type="text"
-            onChange={(e) => setmarketId(e.target.value)}
-            value={marketId}
+            type="number"
+            onChange={(e) => setmarketId(Number(e.target.value))}
+            defaultValue={marketId}
             placeholder="Marketer ID"
             readOnly
           />
@@ -141,8 +230,8 @@ const NewSubscriptionForm = () => {
             className="py-2 px-3 bg-[#D9D9D9C2]"
             type="text"
             id="startDate"
-            onChange={(e) => setstartDate(e.target.value)}
-            value={startDate}
+            // onChange={(e) => setstartDate(e.target.value)}
+            value={readableStartDate}
             readOnly
           />
         </div>
@@ -155,7 +244,7 @@ const NewSubscriptionForm = () => {
             type="text"
             id="epirey__date"
             onChange={(e) => setExpiryDate(e.target.value)}
-            value={expiryDate}
+            value={readableExpiryDate}
             readOnly
           />
         </div>
