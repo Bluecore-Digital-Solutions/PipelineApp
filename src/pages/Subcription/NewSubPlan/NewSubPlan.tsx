@@ -15,6 +15,7 @@ import NewSubscriptionForm from "../../../components/Subscription/NewPlan/NewSub
 
 const NewSubPlanPage: React.FC = () => {
   const history = useHistory();
+  console.log("new plan");
 
   return (
     <IonPage>
