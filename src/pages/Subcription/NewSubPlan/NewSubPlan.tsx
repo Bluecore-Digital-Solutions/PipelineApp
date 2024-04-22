@@ -17,6 +17,11 @@ const NewSubPlanPage: React.FC = () => {
   const history = useHistory();
   console.log("new plan");
   console.log("new plan 2");
+  console.log("new plan 2");
+  console.log("new plan 2");
+  console.log("new plan 2");
+  console.log("new plan 2");
+  console.log("new plan 2");
 
   return (
     <IonPage>
