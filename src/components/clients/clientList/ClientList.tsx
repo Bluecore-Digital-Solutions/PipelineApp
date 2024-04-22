@@ -39,6 +39,7 @@ const ClientList = () => {
 
       const data = await response.json();
 
+      console.log(data);
       setClientList(data.data);
       setFilteredClientList(data.data);
       if (error) {

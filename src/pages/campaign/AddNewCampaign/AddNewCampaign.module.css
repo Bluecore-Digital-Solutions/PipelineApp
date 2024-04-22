@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  padding: 10px 20px;
+  color: black;
+  width: 100%;
+}
+
+.title {
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.back__icon {
+  width: 10px;
+  heigth: 16px;
+}
+
+.link {
+  color: #ff5c00;
+  font-size: 12px;
+}

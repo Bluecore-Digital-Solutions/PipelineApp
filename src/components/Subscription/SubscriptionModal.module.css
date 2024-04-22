@@ -1,0 +1,35 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-top: 50px;
+  text-align: center;
+  padding: 0px 40px;
+}
+
+.modal__img {
+  width: 38px;
+  height: 39px;
+}
+
+.modal > strong {
+  font-size: 17px;
+}
+
+.modal > p {
+  padding: 0px;
+  margin: 0px;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.button {
+  background-color: #ff6b00;
+  color: white;
+  width: 157px;
+  border-radius: 6px;
+  padding: 5px 0px;
+  font-size: 12px;
+  font-weight: 700;
+}

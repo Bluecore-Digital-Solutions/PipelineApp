@@ -1,0 +1,36 @@
+.select__container {
+  display: flex;
+  position: relative;
+  color: rgba(0, 0, 0, 0.44);
+  font-weight: 500;
+  line-height: 15px;
+}
+
+.down {
+  width: 10px;
+  height: 8px;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -10;
+}
+
+.select {
+  background-color: #d9d9d938;
+  height: 37px;
+  font-size: 13px;
+  padding: 0px 5px;
+  border: none;
+}
+
+.select::part(icon) {
+  display: none;
+}
+
+.add {
+  font-size: 13px;
+  line-height: 15px;
+  color: #ff5c00;
+  font-weight: 500;
+}
